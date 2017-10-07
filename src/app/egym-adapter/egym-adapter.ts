@@ -9,14 +9,9 @@ console.log('Subscriber connected');
 
 sock.on('message', function(e) {
     e = e.toString("utf8");
-    e = splitData(e);
-    console.log("Data Received: " + e);
+    let message = splitData(e);
 
-    var message = splitData(e.data);
-    switch (message.command) {
-        case "training_position_data":
-            break;
-    }
+    console.log(" Received:",message);
 });
 
 function splitData(data) {
