@@ -13,6 +13,8 @@ sock.on('message', function (e) {
     e = e.toString("utf8");
     let message = splitData(e);
 
+    if (!isPlayer(message.object.rfid)) return console.log(message);
+
     translate(message);
 });
 
@@ -21,4 +23,10 @@ function splitData(data) {
         'command': data.substr(0, data.indexOf(" ")),
         'object': JSON.parse(data.substr(data.indexOf(" ")))
     };
+}
+
+let playerIDs = [];
+
+function isPlayer(rfid) {
+    return playerIDs.find((id) => rfid === id) >= 0;
 }
