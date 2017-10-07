@@ -7,11 +7,11 @@ sock.connect(url);
 sock.subscribe('');
 console.log('Subscriber connected');
 
-sock.on('message', function(e) {
+sock.on('message', function (e) {
     e = e.toString("utf8");
     let message = splitData(e);
 
-    console.log(" Received:",message);
+    console.log(" Received:", message);
 });
 
 function splitData(data) {
