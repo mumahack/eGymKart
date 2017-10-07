@@ -23,6 +23,7 @@
     "sinon": "^4.0.1",
     "sinon-chai": "^2.14.0",
     "ts-node": "^3.3.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.5.3",
+    "zeromq": "^4.6.0"
   }
 }
