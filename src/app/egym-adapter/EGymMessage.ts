@@ -1,9 +1,9 @@
 export interface EGymMessage {
   command: string;
-  object: EGymObject;
+  body: EGymBody;
 }
 
-export interface EGymObject {
+export interface EGymBody {
   rfid: string;
   timestamp: string;
   machine_id: string;
