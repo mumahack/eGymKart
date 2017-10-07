@@ -1,3 +1,5 @@
+import {translate} from "./translator";
+
 var url = "tcp://35.195.199.160:5556";
 
 var zmq = require('zeromq')
@@ -11,7 +13,7 @@ sock.on('message', function (e) {
     e = e.toString("utf8");
     let message = splitData(e);
 
-    console.log(" Received:", message);
+    translate(message);
 });
 
 function splitData(data) {
