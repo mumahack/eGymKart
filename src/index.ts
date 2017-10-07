@@ -1,19 +1,16 @@
 import {keyTap, keyToggle} from 'robotjs';
+import {createKeyboardController} from './app/keyboard-mapper/KeyboardGameController';
+import {GameControllerCommands} from './app/mario-kart-controller/Controller';
 
-keyToggle('e', 'down');
-keyToggle('left', 'down');
-const interval = setInterval(() => {
-  // keyTap('e');
-}, 1);
+
+const keyboardController = createKeyboardController();
+keyboardController.execute(GameControllerCommands.FORWARD);
+keyboardController.execute(GameControllerCommands.LEFT);
 // const interval2 = setInterval(() => {
 //   keyTap('left');
 // }, 1);
 setTimeout(() => {
-  clearInterval(interval);
-  keyToggle('e', 'up');
-  keyToggle('left', 'up');
-  // clearInterval(interval2);
-  // keyTap('shift');
-  // keep the server alive
+  keyboardController.execute(GameControllerCommands.STOP);
+  keyboardController.execute(GameControllerCommands.CENTER);
 }, 3000);
 console.log('Running!');
