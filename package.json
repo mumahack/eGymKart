@@ -4,6 +4,7 @@
   "description": "A abstraction for eGym devices to control a mario kart game",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --require mocha-config.js -w src/**/*.spec.ts"
   },
   "author": "MunichMakerLab",
@@ -11,6 +12,7 @@
   "dependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.33",
     "@types/ramda": "^0.24.16",
     "@types/sinon": "^2.3.5",
     "@types/sinon-chai": "^2.7.29",
