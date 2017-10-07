@@ -1,0 +1,27 @@
+{
+  "name": "egym-kart",
+  "version": "1.0.0",
+  "description": "A abstraction for eGym devices to control a mario kart game",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --require mocha-config.js -w src/**/*.spec.ts"
+  },
+  "author": "MunichMakerLab",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.33",
+    "@types/ramda": "^0.24.16",
+    "@types/sinon": "^2.3.5",
+    "@types/sinon-chai": "^2.7.29",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "ramda": "^0.24.1",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
+  }
+}
