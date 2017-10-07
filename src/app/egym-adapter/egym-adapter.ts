@@ -3,10 +3,10 @@ import {contains} from 'ramda';
 import {translate} from "./translator";
 import {EGymMessage} from './EGymMessage';
 import {parseMessage} from './message-parser';
+import * as zmq from 'zeromq';
 
 const url = "tcp://35.195.199.160:5556";
 
-const zmq = require('zeromq')
 const sock = zmq.socket('sub');
 
 sock.connect(url);

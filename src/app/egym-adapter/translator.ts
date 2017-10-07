@@ -1,7 +1,7 @@
 import {createKeyboardController} from '../keyboard-mapper/KeyboardGameController';
-import {GameController, GameControllerCommands} from '../mario-kart-controller/Controller';
+import {GameControllerCommands} from '../mario-kart-controller/Controller';
 import {EGymMessage, EGymMessagePayload} from './EGymMessage';
-
+import {EGYM_COMMANDS} from './EGymCommands';
 
 
 const controller = createKeyboardController();
@@ -13,7 +13,7 @@ const controller = createKeyboardController();
 controller.execute(GameControllerCommands.FORWARD);
 export const translate = (input: EGymMessage) => {
   	if(input.command ===  EGYM_COMMANDS.POSITION) {
-	  changePosition(input.object.payload);
+	  changePosition(input.body.payload);
 	}
 };
 
