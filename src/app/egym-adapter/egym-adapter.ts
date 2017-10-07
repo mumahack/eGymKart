@@ -1,5 +1,3 @@
-import {contains} from 'ramda';
-
 import {translate} from "./translator";
 import {EGymMessage} from './EGymMessage';
 import {parseMessage} from './message-parser';

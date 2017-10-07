@@ -5,11 +5,6 @@ import {EGYM_COMMANDS} from './EGymCommands';
 
 
 const controller = createKeyboardController();
-// const controller: GameController = {
-//   execute: (command: GameControllerCommands) => {
-//     console.log(`Command was: ${command}`);
-//   }
-// };
 controller.execute(GameControllerCommands.FORWARD);
 export const translate = (input: EGymMessage) => {
   	if(input.command ===  EGYM_COMMANDS.POSITION) {

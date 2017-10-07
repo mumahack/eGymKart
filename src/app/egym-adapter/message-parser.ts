@@ -1,4 +1,3 @@
-
 import {EGymMessage} from './EGymMessage';
 
 const firstSpaceRegex = /\s(.+)/;
