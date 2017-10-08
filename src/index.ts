@@ -9,8 +9,8 @@ const PLAYERS = {
   TIMO: '14d6ee20'
 };
 
+const eGymDispatcher = createEGymEventDispatcher();
 const controller = createKeyboardController();
-export const eGymDispatcher = createEGymEventDispatcher();
 
 startMarioKartGame(eGymDispatcher, controller, {
   speed: PLAYERS.TIMO,

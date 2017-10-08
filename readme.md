@@ -24,8 +24,8 @@ There are the following packages:
 - *EGymConnector*: Very basic module to connect to the EGym ZeroMQ Server and retrieve and parse all messages
 - *EGymDispatcher*: Uses the EGymConnector and allows for several listeners to be registered - so it is basically responsible to dispatch all messages retrieved from the eGymConnector to all currently registered listeners
 - *MessageHandlers*: Predefined Handler that interpret the EGym Message and can be configured to execute certain controller commands on certain inputs. Currently there are two handlers:
-    - *ThreeStepHandler*: Can execute Controller Commands when reaching a certain, positional step on the machines
-    - *ContinousHandler*: Can "hold down" a Button as long as the machine is constantly pushed from concentric to accentric mode in a configurable timeout
+    - *ThreeStepHandler*: Executes Controller Commands when reaching a certain, positional step on the machines
+    - *ContinuityHandler*: Executes "holding down" a Button as long as the machine is constantly pushed from concentric to accentric mode in a configurable timeout
 - *Game-Controller*: A abstracted and virtual game controller which has several predefined GameControllerCommands that can be executed. This is just an *abstract* interface that needs to be implemented by a fitting output controller
 - *Keyboard-Controller*: Implements the *Game-Controller* by simply mapping the _GameControllerCommands_ to Keyboard strokes on the current system
 

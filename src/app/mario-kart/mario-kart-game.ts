@@ -31,6 +31,7 @@ export const startMarioKartGame = (eGymDispatcher: EgymEventDispatcher, controll
 	  }
 	};
   };
+
   eGymDispatcher.registerListener(createThreeStepListener());
   eGymDispatcher.registerListener(createSpeedListener());
 };
