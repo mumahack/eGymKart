@@ -5,9 +5,9 @@ import {ContinuityHandlerConfig} from '../egym-adapter/message-handlers/continui
 export const steeringConfig: ThreeStepHandlerConfig = {
   thresholds: {min: 0.3, max: 0.6},
   commands: {
-	low: GameControllerCommands.LEFT,
+	low: GameControllerCommands.RIGHT,
 	middle: GameControllerCommands.CENTER,
-	high: GameControllerCommands.RIGHT
+	high: GameControllerCommands.LEFT
   }
 };
 
