@@ -4,7 +4,22 @@ Additionally it currently maps from the GameController to simulated Keyboard str
 
 Also, this repo contains an idea for an App to easily start games - just open the file _frontend/eGym 64.html_ in your browser
 
-If you have any questions about it, feel free to contact me at david.losert@virtual-identity.com
+
+## Contributors to this Project
+This was developed during a hackathon. Special thanks to:
+- Paulina Baginska (Project Management and Pitch Preparation)
+- Jan Wingefeld (Project Management)
+- Timo Morawitz (Pitch Preparation, Design and Frontend App)
+- Johannes Eisenlohr (Coding)
+- David Losert (Coding)
+
+**Special thanks** to all members of [MunichMakerLab](https://munichmakerlab.de/) as well as Deborah Köpfer for the valuable inputs and **a ton of fun**.
+
+Also Thanks to the Organizers of [Burda Hackday](http://burdahackday.de/) for a really nice Hackathon.
+
+#### Contact
+If you have any questions about this project, feel free to contact me at david.losert@virtual-identity.com
+
 ## How to make it work?
 You need a [NodeJS](https://nodejs.org) Installation on your machine. Then:
 
