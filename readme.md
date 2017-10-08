@@ -53,6 +53,7 @@ There are two player types:
 
 
 ## What would be next?
-- Implement an App to dynamically control players and games (let players connect with each other via the eGym Screen, assign which player has which role in a game etc.). A Mockup of this App can be found in the _frontend_ Folder. A clickdummy by simply opening the _frontend/eGym 64.html_ file in your browser.
-- Make the game be started by the Application instead of having it to start manually (like right now)
-- Stream the started game to the application so all players can see it on their eGym Device Screens
+- **Implement proper EGym Device Mode**: The current workout modes on the eGym-Devices are not really good for playing, as they usually stop after a certain time or after certain repetitions. In a game this is not forseeable. Therefore the Machines would need modes with little weights that can run until the game is actually over.
+- **Frontend-App**: Implement an App to dynamically control players and games (let players connect with each other via the eGym Screen, assign which player has which role in a game etc.). A Mockup of this App can be found in the _frontend_ Folder. A clickdummy by simply opening the _frontend/eGym 64.html_ file in your browser.
+- **Integrated Game Execution**: Make the actual game be started by the Application instead of having it to start manually (like right now)
+- **Stream Game**: Stream the started game to the application so all players can see it on their eGym Device Screens
