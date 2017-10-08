@@ -12,20 +12,20 @@ describe('ContinuityHandler', () => {
 	};
 	handler = createContinuityHandler(controllerMock, {
 	  thresholds: {min: 0.1, max: 0.9},
-	  commands: {startMove: GameControllerCommands.FORWARD, endMove: GameControllerCommands.STOP},
+	  commands: {startMove: GameControllerCommands.A_BUTTON, endMove: GameControllerCommands.A_BUTTON_RELEASE},
 	  timeToStop: 100
 	});
   });
   it('starts as soon as the player goes up and down', () => {
 	handler(0);
 	handler(1);
-	expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.FORWARD);
+	expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.A_BUTTON);
   });
   it('stops after a second as soon as the player stops moving', (done) => {
 	handler(0);
 	handler(1);
 	setTimeout(() => {
-	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.STOP);
+	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.A_BUTTON_RELEASE);
 	  done();
 	}, 110);
   });
@@ -47,7 +47,7 @@ describe('ContinuityHandler', () => {
 
 	setTimeout(() => {
 	  clearInterval(interval);
-	  expect(controllerMock.execute).not.to.have.been.calledWith(GameControllerCommands.STOP);
+	  expect(controllerMock.execute).not.to.have.been.calledWith(GameControllerCommands.A_BUTTON_RELEASE);
 	  done();
 	}, 200);
   });

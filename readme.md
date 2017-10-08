@@ -14,7 +14,7 @@ To start the tests, execute `npm test`
 This repository was implemented during a hackathon and we therefore had to put in some hacks to be fast (especially timeouts in tests. etc). Don't mind us - it was a long night ;)
 
 ## Architecture & Further Contribution
-We set this repo up to be easily extendable by the eGym people
+We set this repo up to be easily extendable by the eGym people.
 
 
 

@@ -2,8 +2,8 @@ export enum GameControllerCommands {
   LEFT,
   CENTER,
   RIGHT,
-  FORWARD,
-  STOP,
+  A_BUTTON,
+  A_BUTTON_RELEASE,
   BACKWARD
 }
 

@@ -1,14 +1,14 @@
 import * as sinon from 'sinon';
 import {expect} from 'chai';
 import {GameController, GameControllerCommands} from '../../game-controller/GameController';
-import {createThreeStepHandler, SteeringHandlerConfig} from './three-step-handler';
+import {createThreeStepHandler, ThreeStepHandlerConfig} from './three-step-handler';
 
 describe('ThreeStepHandler', () => {
   let handler;
   let controllerMock: GameController;
   const {LEFT, CENTER, RIGHT} = GameControllerCommands;
 
-  const config: SteeringHandlerConfig = {
+  const config: ThreeStepHandlerConfig = {
 	thresholds: {min: 0.2, max: 0.8},
 	commands: {
 	  low: LEFT,
