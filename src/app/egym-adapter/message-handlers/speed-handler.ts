@@ -1,23 +1,32 @@
 import {GameController, GameControllerCommands} from '../../game-controller/GameController';
 import {always, cond, T} from 'ramda';
+import {ThresholdConfig} from './Configs';
 
 
-const isUp = position => position < 0.2;
-const isDown = position => position > 0.8;
-const getCurrentPos = cond([
-  [isUp, always('up')],
-  [isDown, always('down')],
-  [T, always('center')]
-]);
 
-const isOppositeMoveFrom = (move: string, position: number) => move === 'up' ? isDown(position) : isUp(position);
-const getOppositeMove = (move: string) => move === 'up' ? 'down' : 'up';
-export const createSpeedHandler = (controller: GameController) => {
+
+export interface SpeedHandlerConfig {
+  thresholds: ThresholdConfig,
+  commands: { startMove: GameControllerCommands, endMove: GameControllerCommands },
+  timeToStop: number;
+}
+
+export const createSpeedHandler = (controller: GameController, config: SpeedHandlerConfig) => {
   const state = {
 	isMoving: false,
 	lastPos: 'center',
 	timeout: null
   };
+
+  const isUp = position => position < config.thresholds.min;
+  const isDown = position => position > config.thresholds.max;
+  const getCurrentPos = cond([
+	[isUp, always('up')],
+	[isDown, always('down')],
+	[T, always('center')]
+  ]);
+  const isOppositeMoveFrom = (move: string, position: number) => move === 'up' ? isDown(position) : isUp(position);
+  const getOppositeMove = (move: string) => move === 'up' ? 'down' : 'up';
 
   const refreshStopTimeout = () => {
 	if (state.timeout) {
@@ -25,14 +34,14 @@ export const createSpeedHandler = (controller: GameController) => {
 	}
 	state.timeout = setTimeout(() => {
 	  state.isMoving = false;
-	  controller.execute(GameControllerCommands.STOP);
-	}, 2000)
+	  controller.execute(config.commands.endMove);
+	},config.timeToStop)
   };
 
   const startMovement = () => {
 	state.isMoving = true;
 	state.lastPos = 'up';
-	controller.execute(GameControllerCommands.FORWARD);
+	controller.execute(config.commands.startMove);
   };
 
   return (position: number) => {

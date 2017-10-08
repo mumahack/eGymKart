@@ -10,7 +10,11 @@ describe('SpeedHandler', () => {
 	controllerMock = {
 	  execute: sinon.spy()
 	};
-	handler = createSpeedHandler(controllerMock);
+	handler = createSpeedHandler(controllerMock, {
+	  thresholds: {min: 0.1, max: 0.9},
+	  commands: {startMove: GameControllerCommands.FORWARD, endMove: GameControllerCommands.STOP},
+	  timeToStop: 100
+	});
   });
   it('starts as soon as the player goes up and down', () => {
 	handler(0);
@@ -23,7 +27,7 @@ describe('SpeedHandler', () => {
 	setTimeout(() => {
 	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.STOP);
 	  done();
-	}, 1100);
+	}, 110);
   });
 
 
@@ -39,12 +43,12 @@ describe('SpeedHandler', () => {
 		state = 'up';
 		sendUp();
 	  }
-	}, 500);
+	}, 50);
 
 	setTimeout(() => {
 	  clearInterval(interval);
 	  expect(controllerMock.execute).not.to.have.been.calledWith(GameControllerCommands.STOP);
 	  done();
-	}, 2000);
-  }).timeout(3000);
+	}, 200);
+  });
 });
