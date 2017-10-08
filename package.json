@@ -4,7 +4,7 @@
   "description": "A abstraction for eGym devices to control a mario kart game",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/app/egym-adapter/egym-adapter.ts",
+    "start": "ts-node src/index.ts",
     "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --require mocha-config.js -w src/**/*.spec.ts"
   },
   "author": "MunichMakerLab",

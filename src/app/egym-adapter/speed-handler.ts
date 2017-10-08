@@ -17,8 +17,9 @@ export const createSpeedHandler = (controller: GameController) => {
 	  clearTimeout(state.timeout);
 	}
 	state.timeout = setTimeout(() => {
+	  state.isMoving = false;
 	  controller.execute(GameControllerCommands.STOP);
-	}, 1000)
+	}, 4000)
   };
 
   const startMovement = () => {
@@ -34,7 +35,7 @@ export const createSpeedHandler = (controller: GameController) => {
 	} else {
 	  if (isOppositeMoveFrom(state.lastPos, position)) {
 		refreshStopTimeout();
-		state.isMoving =true;
+		state.isMoving = true;
 		state.lastPos = getOppositeMove(state.lastPos);
 	  }
 	}
