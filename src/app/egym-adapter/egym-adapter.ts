@@ -5,6 +5,7 @@ import * as zmq from 'zeromq';
 import {EGYM_COMMANDS} from './EGymCommands';
 import {createKeyboardController} from '../keyboard-mapper/KeyboardGameController';
 import {GameControllerCommands} from '../mario-kart-controller/Controller';
+import {createSpeedHandler} from './speed-handler';
 
 const sock = zmq.socket('sub');
 
@@ -43,10 +44,11 @@ const steeringListener = (message: EGymMessage) => {
 
 // *********************************************************************
 const createSpeedListener = () => {
-  const internalState = {};
+  const handler = createSpeedHandler(controller);
   return (message: EGymMessage) => {
 	if (message.body.rfid === PLAYERS.TIMO && message.command === EGYM_COMMANDS.POSITION) {
 	  const {position} = message.body.payload;
+	  handler(position);
 	}
   };
 };
@@ -63,7 +65,7 @@ sock.on('message', (e) => {
   e = e.toString("utf8");
   const message: EGymMessage = parseMessage(e);
   if (isPlayer(message.body.rfid)) {
-	const translatedMessage = translate(message);
+    eGymDispatcher.update(message);
   }
 });
 
