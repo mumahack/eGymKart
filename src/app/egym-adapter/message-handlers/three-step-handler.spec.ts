@@ -1,9 +1,9 @@
 import * as sinon from 'sinon';
 import {expect} from 'chai';
 import {GameController, GameControllerCommands} from '../../game-controller/GameController';
-import {createSteeringHandler, SteeringHandlerConfig} from './steering-handler';
+import {createThreeStepHandler, SteeringHandlerConfig} from './three-step-handler';
 
-describe('SteeringHandler', () => {
+describe('ThreeStepHandler', () => {
   let handler;
   let controllerMock: GameController;
   const {LEFT, CENTER, RIGHT} = GameControllerCommands;
@@ -20,7 +20,7 @@ describe('SteeringHandler', () => {
 	controllerMock = {
 	  execute: sinon.spy()
 	};
-	handler = createSteeringHandler(controllerMock, config)
+	handler = createThreeStepHandler(controllerMock, config)
   });
 
 

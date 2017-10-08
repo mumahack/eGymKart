@@ -2,16 +2,13 @@ import {GameController, GameControllerCommands} from '../../game-controller/Game
 import {always, cond, T} from 'ramda';
 import {ThresholdConfig} from './Configs';
 
-
-
-
 export interface SpeedHandlerConfig {
   thresholds: ThresholdConfig,
   commands: { startMove: GameControllerCommands, endMove: GameControllerCommands },
   timeToStop: number;
 }
 
-export const createSpeedHandler = (controller: GameController, config: SpeedHandlerConfig) => {
+export const createContinuityHandler = (controller: GameController, config: SpeedHandlerConfig) => {
   const state = {
 	isMoving: false,
 	lastPos: 'center',

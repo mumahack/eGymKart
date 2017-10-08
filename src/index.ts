@@ -1,9 +1,9 @@
 // MARIO KART SPECIFIC CODE
 import {createKeyboardController} from './app/keyboard-controller/KeyboardGameController';
-import {createSteeringHandler, SteeringHandlerConfig} from './app/egym-adapter/message-handlers/steering-handler';
+import {createThreeStepHandler, SteeringHandlerConfig} from './app/egym-adapter/message-handlers/three-step-handler';
 import {EGymMessage} from './app/egym-adapter/EGymMessage';
 import {EGYM_COMMANDS} from './app/egym-adapter/EGymCommands';
-import {createSpeedHandler, SpeedHandlerConfig} from './app/egym-adapter/message-handlers/speed-handler';
+import {createContinuityHandler, SpeedHandlerConfig} from './app/egym-adapter/message-handlers/continuity-handler';
 import {createEGymEventDispatcher} from './app/egym-adapter/egym-dispatcher';
 import {GameControllerCommands} from './app/game-controller/GameController';
 
@@ -25,7 +25,7 @@ const steeringConfig: SteeringHandlerConfig = {
 };
 
 const createSteeringListener = () => {
-  const handler = createSteeringHandler(controller, steeringConfig);
+  const handler = createThreeStepHandler(controller, steeringConfig);
   return (message: EGymMessage) => {
 	if (message.body.rfid === PLAYERS.PAULINA && message.command === EGYM_COMMANDS.POSITION) {
 	  const {position} = message.body.payload;
@@ -42,7 +42,7 @@ const speedConfig: SpeedHandlerConfig = {
 };
 
 const createSpeedListener = () => {
-  const handler = createSpeedHandler(controller, speedConfig);
+  const handler = createContinuityHandler(controller, speedConfig);
   return (message: EGymMessage) => {
 	if (message.body.rfid === PLAYERS.PAULINA && message.command === EGYM_COMMANDS.POSITION) {
 	  const {position} = message.body.payload;

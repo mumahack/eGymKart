@@ -1,16 +1,16 @@
 import {expect} from 'chai';
-import {createSpeedHandler} from './speed-handler';
+import {createContinuityHandler} from './continuity-handler';
 import * as sinon from 'sinon';
 import {GameController, GameControllerCommands} from '../../game-controller/GameController';
 
-describe('SpeedHandler', () => {
+describe('ContinuityHandler', () => {
   let controllerMock: GameController;
   let handler;
   beforeEach(() => {
 	controllerMock = {
 	  execute: sinon.spy()
 	};
-	handler = createSpeedHandler(controllerMock, {
+	handler = createContinuityHandler(controllerMock, {
 	  thresholds: {min: 0.1, max: 0.9},
 	  commands: {startMove: GameControllerCommands.FORWARD, endMove: GameControllerCommands.STOP},
 	  timeToStop: 100

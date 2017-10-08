@@ -8,7 +8,7 @@ export interface SteeringHandlerConfig {
   commands: { low: GameControllerCommands, middle: GameControllerCommands, high: GameControllerCommands }
 }
 
-export const createSteeringHandler = (controller: GameController, config: SteeringHandlerConfig) => {
+export const createThreeStepHandler = (controller: GameController, config: SteeringHandlerConfig) => {
   const isMin = flip(lte)(config.thresholds.min);
   const isMax = flip(gte)(config.thresholds.max);
   const chooseCommandBy = cond([
