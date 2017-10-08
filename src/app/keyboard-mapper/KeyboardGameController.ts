@@ -1,5 +1,5 @@
 import {keyToggle} from 'robotjs';
-import {GameController, GameControllerCommands} from '../mario-kart-controller/Controller';
+import {GameController, GameControllerCommands} from '../game-controller/GameController';
 
 
 const createKeyUpEvent = (key) => () => keyToggle(key, 'up');

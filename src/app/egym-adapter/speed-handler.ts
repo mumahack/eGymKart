@@ -1,5 +1,4 @@
-import {GameController, GameControllerCommands} from '../mario-kart-controller/Controller';
-
+import {GameController, GameControllerCommands} from '../game-controller/GameController';
 
 const isUp = position => position < 0.2;
 const isDown = position => position > 0.8;
