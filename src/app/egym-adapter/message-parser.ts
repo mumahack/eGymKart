@@ -1,8 +1,8 @@
 import {EGymMessage} from './EGymMessage';
 
-const firstSpaceRegex = /\s(.+)/;
-export const parseMessage = (data): EGymMessage => {
-  const [command, body] = data.split(firstSpaceRegex);
+const onFirstSpace = /\s(.+)/;
+export const parseMessage = (rawDataString: string): EGymMessage => {
+  const [command, body] = rawDataString.split(onFirstSpace);
   return {
 	command,
 	body: JSON.parse(body)
