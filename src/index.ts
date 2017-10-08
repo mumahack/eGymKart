@@ -1,9 +1,9 @@
 // MARIO KART SPECIFIC CODE
-import {createKeyboardController} from './app/keyboard-mapper/KeyboardGameController';
-import {createSteeringHandler} from './app/egym-adapter/steering-handler';
+import {createKeyboardController} from './app/keyboard-controller/KeyboardGameController';
+import {createSteeringHandler} from './app/egym-adapter/message-handlers/steering-handler';
 import {EGymMessage} from './app/egym-adapter/EGymMessage';
 import {EGYM_COMMANDS} from './app/egym-adapter/EGymCommands';
-import {createSpeedHandler} from './app/egym-adapter/speed-handler';
+import {createSpeedHandler} from './app/egym-adapter/message-handlers/speed-handler';
 import {createEGymEventDispatcher} from './app/egym-adapter/egym-dispatcher';
 
 const PLAYERS = {

@@ -11,6 +11,3 @@ export interface GameController {
   execute: (command: GameControllerCommands) => void;
 }
 
-export const createKeymappedController = {
-
-};

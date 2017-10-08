@@ -1,5 +1,5 @@
-import {GameController, GameControllerCommands} from '../game-controller/GameController';
-import {cond, always, T} from 'ramda';
+import {GameController, GameControllerCommands} from '../../game-controller/GameController';
+import {always, cond, T} from 'ramda';
 
 
 const isUp = position => position < 0.2;
@@ -25,7 +25,6 @@ export const createSpeedHandler = (controller: GameController) => {
 	}
 	state.timeout = setTimeout(() => {
 	  state.isMoving = false;
-	  console.log('STAAAAHP');
 	  controller.execute(GameControllerCommands.STOP);
 	}, 2000)
   };
@@ -42,7 +41,6 @@ export const createSpeedHandler = (controller: GameController) => {
 	  if (positionString === 'up' || positionString === 'down') {
 		if (state.lastPos !== 'center' && getOppositeMove(state.lastPos) === positionString) {
 		  startMovement();
-		  console.log('START!');
 		  refreshStopTimeout();
 		}
 		state.lastPos = positionString;

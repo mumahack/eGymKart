@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {createSpeedHandler} from './speed-handler';
 import * as sinon from 'sinon';
-import {GameController, GameControllerCommands} from '../game-controller/GameController';
+import {GameController, GameControllerCommands} from '../../game-controller/GameController';
 
 describe('SpeedHandler', () => {
   let controllerMock: GameController;

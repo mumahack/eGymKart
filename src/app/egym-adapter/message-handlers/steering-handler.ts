@@ -1,4 +1,4 @@
-import {GameController, GameControllerCommands} from '../game-controller/GameController';
+import {GameController, GameControllerCommands} from '../../game-controller/GameController';
 
 export const createSteeringHandler = (controller: GameController) =>
   (position: number) => {
