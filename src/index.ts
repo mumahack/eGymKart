@@ -1,41 +1,18 @@
 // MARIO KART SPECIFIC CODE
-import {createKeyboardController} from './app/keyboard-mapper/KeyboardGameController';
-import {createSteeringHandler} from './app/egym-adapter/steering-handler';
-import {EGymMessage} from './app/egym-adapter/EGymMessage';
-import {EGYM_COMMANDS} from './app/egym-adapter/EGymCommands';
-import {createSpeedHandler} from './app/egym-adapter/speed-handler';
+import {createKeyboardController} from './app/keyboard-controller/KeyboardGameController';
 import {createEGymEventDispatcher} from './app/egym-adapter/egym-dispatcher';
+import {startMarioKartGame} from './app/mario-kart/mario-kart-game';
 
+// Our currently known players. In a later version, this can be replaced by a dynamic input
 const PLAYERS = {
   PAULINA: '2e503f45',
   TIMO: '14d6ee20'
 };
 
+const eGymDispatcher = createEGymEventDispatcher();
 const controller = createKeyboardController();
-export const eGymDispatcher = createEGymEventDispatcher();
 
-const createSteeringListener = () => {
-  const handler = createSteeringHandler(controller);
-  return (message: EGymMessage) => {
-	if (message.body.rfid === PLAYERS.PAULINA && message.command === EGYM_COMMANDS.POSITION) {
-	  const {position} = message.body.payload;
-	  handler(position);
-	}
-  };
-};
-
-// *********************************************************************
-const createSpeedListener = () => {
-  const handler = createSpeedHandler(controller);
-  return (message: EGymMessage) => {
-	if (message.body.rfid === PLAYERS.PAULINA && message.command === EGYM_COMMANDS.POSITION) {
-	  const {position} = message.body.payload;
-	  console.log(`Handling position: ${position}`);
-	  handler(position);
-	}
-  };
-};
-
-
-eGymDispatcher.registerListener(createSteeringListener);
-eGymDispatcher.registerListener(createSpeedListener());
+startMarioKartGame(eGymDispatcher, controller, {
+  speed: PLAYERS.TIMO,
+  steer: PLAYERS.PAULINA
+});

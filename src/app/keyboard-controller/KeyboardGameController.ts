@@ -16,8 +16,8 @@ const commandMap = {
   },
   [GameControllerCommands.LEFT]: createKeyPressedEvent('left'),
   [GameControllerCommands.RIGHT]: createKeyPressedEvent('right'),
-  [GameControllerCommands.FORWARD]: createKeyPressedEvent('e'),
-  [GameControllerCommands.STOP]: createKeyUpEvent('e')
+  [GameControllerCommands.A_BUTTON]: createKeyPressedEvent('e'),
+  [GameControllerCommands.A_BUTTON_RELEASE]: createKeyUpEvent('e')
 };
 
 export const createKeyboardController = (): GameController => {

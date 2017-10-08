@@ -1,29 +1,33 @@
 import {expect} from 'chai';
-import {createSpeedHandler} from './speed-handler';
+import {createContinuityHandler} from './continuity-handler';
 import * as sinon from 'sinon';
-import {GameController, GameControllerCommands} from '../game-controller/GameController';
+import {GameController, GameControllerCommands} from '../../game-controller/GameController';
 
-describe('SpeedHandler', () => {
+describe('ContinuityHandler', () => {
   let controllerMock: GameController;
   let handler;
   beforeEach(() => {
 	controllerMock = {
 	  execute: sinon.spy()
 	};
-	handler = createSpeedHandler(controllerMock);
+	handler = createContinuityHandler(controllerMock, {
+	  thresholds: {min: 0.1, max: 0.9},
+	  commands: {startMove: GameControllerCommands.A_BUTTON, endMove: GameControllerCommands.A_BUTTON_RELEASE},
+	  timeToStop: 100
+	});
   });
   it('starts as soon as the player goes up and down', () => {
 	handler(0);
 	handler(1);
-	expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.FORWARD);
+	expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.A_BUTTON);
   });
   it('stops after a second as soon as the player stops moving', (done) => {
 	handler(0);
 	handler(1);
 	setTimeout(() => {
-	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.STOP);
+	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.A_BUTTON_RELEASE);
 	  done();
-	}, 1100);
+	}, 110);
   });
 
 
@@ -39,12 +43,12 @@ describe('SpeedHandler', () => {
 		state = 'up';
 		sendUp();
 	  }
-	}, 500);
+	}, 50);
 
 	setTimeout(() => {
 	  clearInterval(interval);
-	  expect(controllerMock.execute).not.to.have.been.calledWith(GameControllerCommands.STOP);
+	  expect(controllerMock.execute).not.to.have.been.calledWith(GameControllerCommands.A_BUTTON_RELEASE);
 	  done();
-	}, 2000);
-  }).timeout(3000);
+	}, 200);
+  });
 });

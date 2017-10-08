@@ -1,0 +1,1 @@
+export type ThresholdConfig = {min: number, max: number};

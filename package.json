@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --require mocha-config.js -w src/**/*.spec.ts"
+    "test": "mocha --compilers ts:ts-node/register,tsx:ts-node/register --require mocha-config.js src/**/*.spec.ts"
   },
   "author": "MunichMakerLab",
   "license": "MIT",
