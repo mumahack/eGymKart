@@ -4,6 +4,7 @@ Additionally it currently maps from the GameController to simulated Keyboard str
 
 Also, this repo contains an idea for an App to easily start games - just open the file _frontend/eGym 64.html_ in your browser
 
+If you have any questions about it, feel free to contact me at david.losert@virtual-identity.com
 ## How to make it work?
 You need a [NodeJS](https://nodejs.org) Installation on your machine. Then:
 
@@ -50,7 +51,6 @@ There are two player types:
 - Exectue this App with `npm start`
 - Switch the focused window back to Mario Kart
 - *START WORKING OUT*
-
 
 ## What would be next?
 - **Implement proper EGym Device Mode**: The current workout modes on the eGym-Devices are not really good for playing, as they usually stop after a certain time or after certain repetitions. In a game this is not forseeable. Therefore the Machines would need modes with little weights that can run until the game is actually over.
