@@ -12,13 +12,14 @@ describe('SpeedHandler', () => {
 	};
 	handler = createSpeedHandler(controllerMock);
   });
-  it('starts as soon as the player goes up', () => {
+  it('starts as soon as the player goes up and down', () => {
 	handler(0);
+	handler(1);
 	expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.FORWARD);
   });
   it('stops after a second as soon as the player stops moving', (done) => {
 	handler(0);
-
+	handler(1);
 	setTimeout(() => {
 	  expect(controllerMock.execute).to.have.been.calledWith(GameControllerCommands.STOP);
 	  done();
